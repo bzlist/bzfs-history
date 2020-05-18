@@ -25,7 +25,7 @@ const serverlist: {
 await mongoInit();
 
 const client = new MongoClient();
-client.connectWithUri(`mongodb+srv://${Deno.env.get("DB_USER")}:${Deno.env.get("DB_PASSWORD")}@${Deno.env.get("DB_HOSTNAME")}/`);
+client.connectWithUri(Deno.env.get("DB_URL") || `mongodb+srv://${Deno.env.get("DB_USER")}:${Deno.env.get("DB_PASSWORD")}@${Deno.env.get("DB_HOSTNAME")}/`);
 
 const db = client.database(Deno.env.get("DB_NAME") || "bzfs_history");
 const serversCollection = db.collection("servers");
