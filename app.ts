@@ -1,5 +1,5 @@
 import bzfquery from "https://raw.githubusercontent.com/The-Noah/bzfquery.js/master/bzfquery.ts";
-import {init as mongoInit, MongoClient} from "https://deno.land/x/mongo@v0.6.0/mod.ts";
+import {init as mongoInit, MongoClient} from "https://deno.land/x/mongo@v0.8.0/mod.ts";
 import "https://deno.land/x/denv/mod.ts";
 
 const serverlist: {
@@ -22,7 +22,7 @@ const serverlist: {
   };
 });
 
-await mongoInit();
+//await mongoInit();
 
 const client = new MongoClient();
 client.connectWithUri(Deno.env.get("DB_URL") || `mongodb+srv://${Deno.env.get("DB_USER")}:${Deno.env.get("DB_PASSWORD")}@${Deno.env.get("DB_HOSTNAME")}/`);

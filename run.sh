@@ -1,3 +1,3 @@
 #!/bin/bash
 
-deno run --allow-net --allow-write --allow-read --allow-plugin --allow-env --unstable app.ts
+~/.deno/bin/deno run --allow-net --allow-write --allow-read --allow-plugin --allow-env --unstable app.ts
