@@ -22,8 +22,6 @@ const serverlist: {
   };
 });
 
-//await mongoInit();
-
 const client = new MongoClient();
 client.connectWithUri(Deno.env.get("DB_URL") || `mongodb+srv://${Deno.env.get("DB_USER")}:${Deno.env.get("DB_PASSWORD")}@${Deno.env.get("DB_HOSTNAME")}/`);
 
