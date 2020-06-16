@@ -1,4 +1,4 @@
-import bzfquery from "https://raw.githubusercontent.com/The-Noah/bzfquery.js/master/bzfquery.ts";
+import bzfquery from "https://deno.land/x/bzfquery.js/bzfquery.ts";
 import {init as mongoInit, MongoClient} from "https://deno.land/x/mongo@v0.8.0/mod.ts";
 import "https://deno.land/x/denv/mod.ts";
 
