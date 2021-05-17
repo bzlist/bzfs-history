@@ -1,6 +1,8 @@
-import bzfquery from "https://deno.land/x/bzfquery.js/bzfquery.ts";
-import {init as mongoInit, MongoClient} from "https://deno.land/x/mongo@v0.8.0/mod.ts";
-import "https://deno.land/x/denv/mod.ts";
+import bzfquery from "https://deno.land/x/bzfquery@v1.0.4/bzfquery.ts";
+import {Bson, MongoClient} from "https://deno.land/x/mongo@v0.22.0/mod.ts";
+import {load as loadEnv} from "https://deno.land/x/denv@2.0.0/mod.ts";
+
+await loadEnv();
 
 const serverlist: {
   protocol: string,
@@ -23,7 +25,7 @@ const serverlist: {
 });
 
 const client = new MongoClient();
-client.connectWithUri(Deno.env.get("DB_URL") || `mongodb+srv://${Deno.env.get("DB_USER")}:${Deno.env.get("DB_PASSWORD")}@${Deno.env.get("DB_HOSTNAME")}/`);
+await client.connect(Deno.env.get("DB_URL") || `mongodb://${Deno.env.get("DB_USERNAME")}:${Deno.env.get("DB_PASSWORD")}@${Deno.env.get("DB_HOSTNAME")}/`);
 
 const db = client.database(Deno.env.get("DB_NAME") || "bzfs_history");
 const serversCollection = db.collection("servers");
